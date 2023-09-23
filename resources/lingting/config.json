@@ -1,0 +1,117 @@
+{
+    "texture" : {
+        "background" : {
+            "path" : "background.png",
+            "clarity" : 0.5,
+            "x" : 0,
+            "y": 0,
+            "width" : 500,
+            "height" : 500
+        },
+        "broad" : {
+            "path" : "broad.png",
+            "clarity" : 1,
+            "x" : 0,
+            "y": 0,
+            "width" : 500,
+            "height" : 500,
+            "chest" : {
+                "x" : 22.5,
+                "y" : 42.5,
+                "side" :82.5,
+                "interval" : 5
+            }
+        },
+        "chests" : [
+            {
+                "path" : "checks/2.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/4.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/8.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/16.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/32.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/64.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/128.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/256.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/512.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/1024.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/2048.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/4096.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/8192.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            },
+            {
+                "path" : "checks/16384.png",
+                "clarity" : 1,
+                "width" : 95,
+                "height" : 95
+            }
+        ]
+    },
+    "gameConfig" : {
+        "length": 4,
+        "rate": 0.1,
+        "缺省值seed": "这里可以塞整数当做种子"
+    }
+}
