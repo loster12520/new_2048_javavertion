@@ -1,49 +1,109 @@
+/**
+ * 放置在model包内的目的，大概是因为这个也属于一种模型吧
+ */
 package model;
 
+/**
+ * 导包
+ */
 import java.util.*;
 
+/**
+ * Game
+ * 本类旨在实现整个游戏的逻辑，所有关于游戏控制以及变更的行为都会在这里实现
+ *
+ * @author loster12520
+ */
 public class Game {
+    /**
+     * 游戏面板边长，一般为4
+     */
     private Integer length;
+    /**
+     * 游戏面板数据保存的数组
+     */
     private Integer[][] checks;
+    /**
+     * 用作移动后要新增新方块时判断是否需要新增
+     */
     private Boolean is_change = true;
+    /**
+     * 分数，虽然现阶段还没有在ui上表现出来，但仍旧提供了访问的接口
+     */
     private Integer score=0;
+    /**
+     * 随机数发生器，用于生成新方块
+     */
     private Random random;
+    /**
+     * 前一步的面板数据数组，用于reset的时候覆写checks
+     */
     private Integer[][] pre_checks;
+
+    /**
+     * 构造函数的基础实现
+     * @param length  同类中的length
+     * @param seed 随机数发生器的种子
+     */
 
     public Game(Integer length,long seed) {
         this.length=length;
+        //初始化一下面板数据
         checks=new Integer[length][length];
+        //初始化随机数发生器
         random=new Random(seed);
+        //初始化先前面板
         pre_checks=new Integer[length][length];
+        //初始化游戏函数
         initGame();
     }
 
+    /**
+     * 构造方法的简易实现
+     * @param length 同类中的length
+     */
     public Game(Integer length) {
+        //省略的seed值直接使用当前系统的时间作为seed值
         this(length,System.currentTimeMillis());
     }
+
+    /**
+     * 用于调试的构造方法，可以直接生成对应情况的游戏面板
+     * @param checks 游戏面板数据
+     */
     public Game(Integer[][] checks){
         this(checks.length);
         this.checks=checks;
     }
 
+    /**
+     * 初始化游戏
+     */
     public void initGame() {
+        //初始化分数
         score = 0;
+        //向游戏面板列表的每一项注入0
         for (int indexRow = 0; indexRow < length; indexRow++) {
             for (int indexCol = 0; indexCol < length; indexCol++) {
                 checks[indexRow][indexCol] = 0;
             }
         }
-        // 最开始时生成两个数
+        // 最开始时生成两个方块  createCheck是创建新方块的函数
         is_change = true;
         createCheck();
         is_change = true;
         createCheck();
+        //向游戏面板列表的副本每一项注入0
         for (int indexRow = 0; indexRow < length; indexRow++) {
             for (int indexCol = 0; indexCol < length; indexCol++) {
                 pre_checks[indexRow][indexCol] = 0;
             }
         }
     }
+
+    /**
+     * 创建新方块
+     */
     private void createCheck() {
         List<Integer[]> list = getEmptyChecks();
 
